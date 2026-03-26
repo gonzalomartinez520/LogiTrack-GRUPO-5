@@ -26,7 +26,7 @@ git push origin feature/nombre-funcionalidad
 
 ---
 
-## 🌿 Convención de ramas
+## 🌿 Estrategia de ramas
 
 * `feature/*` → nuevas funcionalidades
 * `bugfix/*` → corrección de errores
@@ -92,7 +92,3 @@ Antes de enviar un PR:
 ## ✅ Revisión
 
 Los PRs serán revisados antes de ser integrados a `develop`.
-
----
-
-¡Gracias por contribuir! 🎉
