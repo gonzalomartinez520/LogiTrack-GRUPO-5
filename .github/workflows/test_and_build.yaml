@@ -36,4 +36,5 @@ jobs:
       run: ruff check .
 
     - name: Test with pytest
-      run: pytest
+      working-directory: tests
+      run: pytest test.py
