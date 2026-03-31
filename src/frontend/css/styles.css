@@ -1,8 +1,29 @@
+/* =========================
+   🔹 ESTILOS GENERALES
+========================= */
+
 body {
   font-family: Arial, sans-serif;
   margin: 0;
   background: #f5f6fa;
 }
+
+.container {
+  padding: 30px;
+}
+
+.subtitle {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+hr {
+  margin: 20px 0;
+}
+
+/* =========================
+   🔹 NAVBAR
+========================= */
 
 .navbar {
   display: flex;
@@ -13,7 +34,7 @@ body {
 }
 
 .logo {
-  color: rgb(232, 76, 34); /* tu naranja */
+  color: rgb(232, 76, 34);
 }
 
 nav a {
@@ -26,9 +47,9 @@ nav .active {
   border-bottom: 2px solid rgb(232, 76, 34);
 }
 
-.container {
-  padding: 30px;
-}
+/* =========================
+   🔹 PANTALLA INDEX (LISTADO)
+========================= */
 
 .cards {
   display: flex;
@@ -82,29 +103,89 @@ th, td {
   border-radius: 10px;
 }
 
-.detalle-card {
-  background: white;
-  padding: 20px;
-  border-radius: 10px;
+/* =========================
+   🔹 PANTALLA DETALLE DE ENVÍO (FINAL)
+========================= */
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background:#f5f5f5;
+    margin:0;
 }
 
-hr {
-  margin: 20px 0;
+.container{
+    width:900px;
+    margin:auto;
+    padding:30px;
 }
 
-
-
-
-
-
-
-
-.subtitle {
-  color: gray;
-  margin-bottom: 20px;
+h1{
+    margin-bottom:5px;
 }
 
-/* CARDS (cuadros) */
+.tracking{
+    color:#666;
+}
+
+.volver{
+    text-decoration:none;
+    color:#555;
+    display:inline-block;
+    margin-bottom:20px;
+}
+
+.estado{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.badge{
+    background:#f1c40f;
+    padding:8px 14px;
+    border-radius:20px;
+    font-weight:bold;
+}
+
+.card{
+    background:white;
+    padding:20px;
+    border-radius:8px;
+    margin-bottom:20px;
+}
+
+.grid2{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:20px;
+}
+
+label{
+    font-size:12px;
+    color:#888;
+}
+
+p{
+    margin-top:3px;
+    margin-bottom:15px;
+}
+
+ul{
+    padding-left:20px;
+}
+
+li{
+    margin-bottom:5px;
+}
+
+/* =========================
+   🔹 PANTALLA CREAR ENVÍO
+========================= */
+
+/* Cards formulario */
 .card-form {
   background: white;
   padding: 20px;
@@ -146,3 +227,56 @@ hr {
   padding: 10px 20px;
   cursor: pointer;
 }
+
+
+
+
+
+
+
+
+
+
+/* =========================
+   🔹 AJUSTE DETALLE DESKTOP
+========================= */
+
+.tracking{
+color:#777;
+margin-bottom:20px;
+}
+
+.estado h3{
+margin:0;
+}
+
+.estado p{
+margin:3px 0 0 0;
+}
+
+.grid2 .card{
+margin-bottom:0;
+}
+
+#historial{
+margin-top:10px;
+}
+
+#historial li{
+background:#f5f6fa;
+padding:8px;
+border-radius:6px;
+margin-bottom:8px;
+}
+     
+
+
+
+
+
+
+
+
+
+
+

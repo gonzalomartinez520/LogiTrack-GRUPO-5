@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <title>Detalle de Envío</title>
-  <link rel="stylesheet" href="css/styles.css">
+<meta charset="UTF-8">
+<title>Detalle del Envío</title>
+<link rel="stylesheet" href="css/styles.css">
 </head>
+
 <body>
 
 <header class="navbar">
@@ -22,31 +23,94 @@
 
 <main class="container">
 
-  <h2>Detalle del Envío</h2>
+<a href="index.html" class="volver">← Volver al listado</a>
 
-  <div class="detalle-card">
+<h2>Detalle del Envío</h2>
+<p class="tracking">Tracking ID: <span id="tracking"></span></p>
 
-    <p><strong>Tracking ID:</strong> ENV-16593</p>
-    <p><strong>Estado:</strong> <span class="badge">En Sucursal</span></p>
-    <p><strong>Fecha de creación:</strong> 30/03/2026</p>
-
-    <hr>
-
-    <h3>Información del destinatario</h3>
-    <p><strong>Nombre:</strong> Gonzalo</p>
-    <p><strong>Dirección:</strong> Av. Siempre Viva 742</p>
-
-    <hr>
-
-    <h3>Origen</h3>
-    <p>Buenos Aires</p>
-
-    <h3>Destino</h3>
-    <p>Córdoba</p>
-
+<!-- Estado -->
+<div class="estado">
+  <div>
+    <h3>Estado del Envío</h3>
+    <p class="subtitle">Solo los supervisores pueden cambiar el estado</p>
   </div>
 
+  <span id="estado" class="badge"></span>
+</div>
+
+<!-- Información General -->
+<div class="card">
+<h3>Información General</h3>
+
+<div class="grid2">
+
+<div>
+<label>Remitente</label>
+<p id="remitente"></p>
+</div>
+
+<div>
+<label>Destinatario</label>
+<p id="destinatario"></p>
+</div>
+
+<div>
+<label>Fecha de Creación</label>
+<p id="fecha"></p>
+</div>
+
+</div>
+</div>
+
+
+<!-- Origen y Destino -->
+<div class="grid2">
+
+<div class="card">
+<h3>Origen</h3>
+
+<label>Ciudad</label>
+<p id="ciudadOrigen"></p>
+
+<label>País</label>
+<p id="paisOrigen"></p>
+
+<label>Dirección</label>
+<p id="direccionOrigen"></p>
+
+</div>
+
+
+<div class="card">
+<h3>Destino</h3>
+
+<label>Ciudad</label>
+<p id="ciudadDestino"></p>
+
+<label>País</label>
+<p id="paisDestino"></p>
+
+<label>Dirección</label>
+<p id="direccionDestino"></p>
+
+</div>
+
+</div>
+
+
+<!-- Historial -->
+<div class="card">
+
+<h3>Historial de Cambios de Estado</h3>
+
+<ul id="historial">
+</ul>
+
+</div>
+
 </main>
+
+<script src="js/detalle.js"></script>
 
 </body>
 </html>
