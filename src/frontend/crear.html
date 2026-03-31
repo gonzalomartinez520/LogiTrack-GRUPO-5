@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Crear Envío</title>
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<header class="navbar">
+  <h1 class="logo">📦 LogiTrack</h1>
+
+  <nav>
+    <a href="index.html">Listado de Envíos</a>
+    <a class="active">Crear Envío</a>
+  </nav>
+
+  <div class="user">
+    Usuario | Operador
+  </div>
+</header>
+
+<main class="container">
+
+  <h2>Crear Nuevo Envío</h2>
+  <p class="subtitle">Complete la información para registrar un nuevo envío</p>
+
+  <form id="form-envio">
+
+    <!-- INFORMACIÓN GENERAL -->
+    <div class="card-form">
+      <h3>Información General</h3>
+
+      <label>Nombre del remitente</label>
+      <input type="text" id="remitente" required>
+
+      <label>Nombre del destinatario</label>
+      <input type="text" id="destinatario" required>
+    </div>
+
+    <!-- ORIGEN -->
+    <div class="card-form">
+      <h3>Origen</h3>
+
+      <label>Ciudad de origen</label>
+      <input type="text" id="ciudadOrigen" required>
+
+      <label>País de origen</label>
+      <input type="text" id="paisOrigen" required>
+
+      <label>Dirección completa de origen</label>
+      <input type="text" id="direccionOrigen" required>
+    </div>
+
+    <!-- DESTINO -->
+    <div class="card-form">
+      <h3>Destino</h3>
+
+      <label>Ciudad de destino</label>
+      <input type="text" id="ciudadDestino" required>
+
+      <label>País de destino</label>
+      <input type="text" id="paisDestino" required>
+
+      <label>Dirección completa de destino</label>
+      <input type="text" id="direccionDestino" required>
+    </div>
+
+    <!-- NOTAS -->
+    <div class="card-form">
+      <h3>Notas Adicionales</h3>
+
+      <textarea id="notas" placeholder="Instrucciones especiales, observaciones, etc."></textarea>
+    </div>
+
+    <!-- BOTONES -->
+    <div class="botones">
+      <button type="button" class="btn-cancelar" onclick="window.location.href='index.html'">
+        Cancelar
+      </button>
+
+      <button type="submit" class="btn-crear">
+        Crear Envío
+      </button>
+    </div>
+
+  </form>
+
+</main>
+
+<script src="js/app.js"></script>
+
+</body>
+</html>

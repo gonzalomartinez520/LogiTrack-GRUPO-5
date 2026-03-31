@@ -91,3 +91,58 @@ th, td {
 hr {
   margin: 20px 0;
 }
+
+
+
+
+
+
+
+
+.subtitle {
+  color: gray;
+  margin-bottom: 20px;
+}
+
+/* CARDS (cuadros) */
+.card-form {
+  background: white;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+
+/* Inputs */
+.card-form label {
+  display: block;
+  margin-top: 10px;
+}
+
+.card-form input,
+.card-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-top: 5px;
+}
+
+/* Botones */
+.botones {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
+}
+
+.btn-cancelar {
+  background: #ccc;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
+
+.btn-crear {
+  background: rgb(232, 76, 34);
+  color: white;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+}
