@@ -4,8 +4,13 @@ document.addEventListener("DOMContentLoaded", cargarEnvios);
 
 function cargarEnvios() {
 
-  fetch(API_URL + "/envios")
-    .then(response => response.json())
+  fetch(`${API_URL}/envios`)
+    .then(response => {
+      if (!response.ok) {
+        throw new Error("Error al obtener los envíos");
+      }
+      return response.json();
+    })
     .then(envios => {
 
       const tbody = document.querySelector("tbody");
@@ -16,10 +21,10 @@ function cargarEnvios() {
         const fila = document.createElement("tr");
 
         fila.innerHTML = `
-          <td class="link">${envio.trackingId}</td>
-          <td>${envio.destinatario}</td>
+          <td class="link">${envio.trackingId || "-"}</td>
+          <td>${envio.destinatario || "-"}</td>
           <td>
-            <span class="badge">${envio.estadoActual}</span>
+            <span class="badge">${envio.estadoActual || "SIN ESTADO"}</span>
           </td>
           <td>${formatearFecha(envio.fechaCreacion)}</td>
           <td>
@@ -36,13 +41,24 @@ function cargarEnvios() {
     })
     .catch(error => {
       console.error("Error cargando envíos:", error);
+
+      const tbody = document.querySelector("tbody");
+      tbody.innerHTML = `
+        <tr>
+          <td colspan="5">Error al cargar los envíos</td>
+        </tr>
+      `;
     });
 
 }
 
 function formatearFecha(fecha) {
 
+  if (!fecha) return "-";
+
   const date = new Date(fecha);
+
+  if (isNaN(date)) return "-";
 
   return date.toLocaleDateString("es-AR", {
     day: "2-digit",
