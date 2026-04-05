@@ -17,7 +17,6 @@ function inicializarRol() {
     rolActual = e.target.value;
     localStorage.setItem("rol", rolActual);
 
-    // 🔥 Refrescar lista al cambiar rol (por consistencia)
     cargarEnvios();
   });
 }
@@ -25,7 +24,7 @@ function inicializarRol() {
 function cargarEnvios() {
 
   fetch(`${API_URL}/envios`, {
-    cache: "no-store" // 🔥 evita cache (clave para ver cambios de estado)
+    cache: "no-store"
   })
     .then(response => {
       if (!response.ok) {
@@ -40,9 +39,20 @@ function cargarEnvios() {
 
       tbody.innerHTML = "";
 
+      // 🔥 CONTADORES
+      let total = envios.length;
+      let enSucursal = 0;
+      let enTransito = 0;
+      let entregados = 0;
+
       envios.forEach(envio => {
 
         const estado = envio.estadoActual || envio.estado || "SIN ESTADO";
+
+        // 🔥 CONTAR ESTADOS
+        if (estado === "EN_SUCURSAL") enSucursal++;
+        if (estado === "EN_TRANSITO") enTransito++;
+        if (estado === "ENTREGADO") entregados++;
 
         const fila = document.createElement("tr");
 
@@ -63,6 +73,12 @@ function cargarEnvios() {
         tbody.appendChild(fila);
       });
 
+      // 🔥 ACTUALIZAR CARDS
+      setCard("totalEnvios", total);
+      setCard("enSucursal", enSucursal);
+      setCard("enTransito", enTransito);
+      setCard("entregados", entregados);
+
     })
     .catch(error => {
       console.error("Error cargando envíos:", error);
@@ -75,7 +91,21 @@ function cargarEnvios() {
           <td colspan="5">Error al cargar los envíos</td>
         </tr>
       `;
+
+      // 🔥 resetear cards en error
+      setCard("totalEnvios", "-");
+      setCard("enSucursal", "-");
+      setCard("enTransito", "-");
+      setCard("entregados", "-");
     });
+}
+
+// 🔥 helper para actualizar cards
+function setCard(id, valor) {
+  const el = document.getElementById(id);
+  if (el) {
+    el.textContent = valor;
+  }
 }
 
 function formatearFecha(fecha) {
