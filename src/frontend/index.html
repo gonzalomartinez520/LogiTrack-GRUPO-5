@@ -17,17 +17,19 @@
   </nav>
 
   <div class="user">
-    Usuario |
+    <span id="nombreUsuario">Usuario</span> |
     <select id="rol">
       <option value="operador">Operador</option>
       <option value="supervisor">Supervisor</option>
     </select>
+
+    <button id="cambiarUsuario">Cambiar</button>
   </div>
 </header>
 
 <main class="container">
 
-  <!-- 🔥 Cards dinámicas -->
+  <!-- Cards dinámicas -->
   <section class="cards">
     <div class="card">Total de Envíos: <b id="totalEnvios">-</b></div>
     <div class="card warning">En Sucursal: <b id="enSucursal">-</b></div>
@@ -35,7 +37,7 @@
     <div class="card success">Entregados: <b id="entregados">-</b></div>
   </section>
 
-  <!-- 🔥 Buscador -->
+  <!-- Buscador -->
   <div class="search-container">
     <input 
       type="text"
@@ -67,6 +69,7 @@
 
 </main>
 
+<script src="app.js"></script>
 <script src="index.js" defer></script>
 
 </body>

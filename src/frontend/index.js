@@ -1,31 +1,12 @@
-const API_URL = "https://backend-logicatrack-production.up.railway.app";
-
-let rolActual = localStorage.getItem("rol") || "operador";
-
 // 🔥 guardamos envíos globalmente para filtrar
 let enviosGlobal = [];
 
 document.addEventListener("DOMContentLoaded", () => {
-  inicializarRol();
   inicializarBuscador();
   cargarEnvios();
 });
 
-function inicializarRol() {
-  const selectRol = document.getElementById("rol");
-  if (!selectRol) return;
-
-  selectRol.value = rolActual;
-
-  selectRol.addEventListener("change", (e) => {
-    rolActual = e.target.value;
-    localStorage.setItem("rol", rolActual);
-
-    cargarEnvios();
-  });
-}
-
-// 🔥 NUEVO: buscador en tiempo real
+// 🔥 Buscador en tiempo real
 function inicializarBuscador() {
   const input = document.getElementById("buscador");
   if (!input) return;
@@ -58,7 +39,6 @@ function cargarEnvios() {
     })
     .then(envios => {
 
-      // 🔥 guardamos globalmente
       enviosGlobal = envios;
 
       renderTabla(envios);
@@ -84,7 +64,7 @@ function cargarEnvios() {
     });
 }
 
-// 🔥 NUEVA: render de tabla reutilizable
+// 🔥 Render de tabla
 function renderTabla(envios) {
 
   const tbody = document.querySelector("tbody");
@@ -125,7 +105,7 @@ function renderTabla(envios) {
   });
 }
 
-// 🔥 NUEVA: actualizar estadísticas reutilizable
+// 🔥 Actualizar estadísticas
 function actualizarCards(envios) {
 
   let total = envios.length;

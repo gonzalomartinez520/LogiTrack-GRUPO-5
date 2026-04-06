@@ -17,11 +17,13 @@
   </nav>
 
   <div class="user">
-    Usuario |
+    <span id="nombreUsuario">Usuario</span> |
     <select id="rol">
       <option value="operador">Operador</option>
       <option value="supervisor">Supervisor</option>
     </select>
+
+    <button id="cambiarUsuario">Cambiar</button>
   </div>
 </header>
 
@@ -95,7 +97,6 @@
 
   <h3>Historial de Cambios de Estado</h3>
 
-  <!-- 🔥 mensaje por defecto (mejor UX mientras carga) -->
   <ul id="historial">
     <li>Cargando historial...</li>
   </ul>
@@ -104,6 +105,7 @@
 
 </main>
 
+<script src="app.js"></script>
 <script src="detalle.js"></script>
 
 </body>

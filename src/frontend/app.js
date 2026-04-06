@@ -4,10 +4,11 @@ let rolActual = localStorage.getItem("rol") || "operador";
 
 document.addEventListener("DOMContentLoaded", () => {
   inicializarRol();
+  inicializarUsuario();
   inicializarFormulario();
 });
 
-// 🔥 Manejo de rol (igual que en detalle.js)
+// 🔥 Manejo de rol
 function inicializarRol() {
   const selectRol = document.getElementById("rol");
 
@@ -19,6 +20,35 @@ function inicializarRol() {
     rolActual = e.target.value;
     localStorage.setItem("rol", rolActual);
   });
+}
+
+// 🔥 Manejo del nombre de usuario
+function inicializarUsuario() {
+  const nombreElemento = document.getElementById("nombreUsuario");
+  const botonCambiar = document.getElementById("cambiarUsuario");
+
+  if (!nombreElemento) return;
+
+  // Cargar usuario guardado
+  let nombreGuardado = localStorage.getItem("usuario") || "Usuario";
+
+  nombreElemento.textContent = nombreGuardado;
+
+  // Cambiar usuario
+  if (botonCambiar) {
+    botonCambiar.addEventListener("click", () => {
+
+      const nuevoNombre = prompt("Ingrese su nombre de usuario:", nombreGuardado);
+
+      if (nuevoNombre && nuevoNombre.trim() !== "") {
+
+        localStorage.setItem("usuario", nuevoNombre);
+        nombreElemento.textContent = nuevoNombre;
+
+      }
+
+    });
+  }
 }
 
 // 🔥 Lógica del formulario
@@ -60,10 +90,8 @@ function inicializarFormulario() {
 
         alert("Envío creado correctamente");
 
-        // 🔥 Opcional: limpiar form antes de irse
         form.reset();
 
-        // Redirige al listado
         window.location.href = "index.html";
       })
       .catch(error => {
@@ -72,3 +100,5 @@ function inicializarFormulario() {
       });
   });
 }
+
+//version mala 

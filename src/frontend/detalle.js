@@ -1,26 +1,8 @@
 const API_URL = "https://backend-logicatrack-production.up.railway.app";
 
-let rolActual = localStorage.getItem("rol") || "operador";
-
 document.addEventListener("DOMContentLoaded", () => {
-  inicializarRol();
   cargarDetalle();
 });
-
-function inicializarRol() {
-  const selectRol = document.getElementById("rol");
-
-  if (!selectRol) return;
-
-  selectRol.value = rolActual;
-
-  selectRol.addEventListener("change", (e) => {
-    rolActual = e.target.value;
-    localStorage.setItem("rol", rolActual);
-
-    location.reload();
-  });
-}
 
 function cargarDetalle() {
 
@@ -60,8 +42,6 @@ function cargarDetalle() {
       }
 
       renderAccionesSupervisor(envio, estadoActual);
-
-      // 🔥 ahora pasamos tracking también
       renderHistorial(envio.trackingId);
 
     })
@@ -77,6 +57,8 @@ function renderAccionesSupervisor(envio, estadoActual) {
   if (!contenedor) return;
 
   contenedor.innerHTML = "";
+
+  const rolActual = localStorage.getItem("rol") || "operador";
 
   if (rolActual !== "supervisor") return;
 
@@ -96,7 +78,7 @@ function renderAccionesSupervisor(envio, estadoActual) {
   });
 }
 
-// 🔥 NUEVA FUNCIÓN: guardar historial
+// guardar historial en localStorage
 function guardarHistorial(trackingId, nuevoEstado) {
 
   const key = `historial_${trackingId}`;
@@ -111,7 +93,6 @@ function guardarHistorial(trackingId, nuevoEstado) {
   localStorage.setItem(key, JSON.stringify(historial));
 }
 
-// 🔥 FIX + historial
 function cambiarEstado(trackingId, nuevoEstado) {
 
   fetch(`${API_URL}/envios/${trackingId}/estado`, {
@@ -129,16 +110,13 @@ function cambiarEstado(trackingId, nuevoEstado) {
     })
     .then(() => {
 
-      // ✅ guardar historial en frontend
       guardarHistorial(trackingId, nuevoEstado);
 
-      // ✅ actualizar UI inmediata
       const estadoEl = document.getElementById("estado");
       if (estadoEl) {
         estadoEl.textContent = nuevoEstado;
       }
 
-      // 🔥 recargar para renderizar historial nuevo
       cargarDetalle();
 
     })
@@ -148,7 +126,6 @@ function cambiarEstado(trackingId, nuevoEstado) {
     });
 }
 
-// 🔥 NUEVO render de historial desde localStorage
 function renderHistorial(trackingId) {
 
   const ul = document.getElementById("historial");
@@ -164,7 +141,6 @@ function renderHistorial(trackingId) {
     return;
   }
 
-  // mostrar más reciente arriba
   historial.slice().reverse().forEach(item => {
 
     const li = document.createElement("li");
@@ -175,6 +151,7 @@ function renderHistorial(trackingId) {
 }
 
 function setValor(id, valor) {
+
   const el = document.getElementById(id);
   if (!el) return;
 
@@ -183,13 +160,16 @@ function setValor(id, valor) {
   } else {
     el.textContent = valor || "-";
   }
+
 }
 
 function formatearFecha(fecha) {
+
   if (!fecha) return "-";
 
   const date = new Date(fecha);
   if (isNaN(date)) return "-";
 
   return date.toLocaleString("es-AR");
+
 }
