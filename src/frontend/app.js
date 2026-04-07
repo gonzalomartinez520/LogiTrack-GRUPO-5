@@ -1,24 +1,17 @@
 const API_URL = "https://backend-logicatrack-production.up.railway.app";
 
-document.getElementById("form-envio").addEventListener("submit", async (e) => {
-  e.preventDefault();
+let rolActual = localStorage.getItem("rol") || "operador";
 
-  const envio = {
-    remitente: document.getElementById("remitente").value,
-    destinatario: document.getElementById("destinatario").value,
-    origen: document.getElementById("ciudadOrigen").value,
-    destino: document.getElementById("ciudadDestino").value,
+document.addEventListener("DOMContentLoaded", () => {
+  inicializarRol();
+  inicializarUsuario();
+  inicializarFormulario();
+});
 
-    // 🔥 IA
-    distancia_km: parseFloat(document.getElementById("distancia_km").value),
-    tipo_envio: document.getElementById("tipo_envio").value,
-    ventana_horaria: document.getElementById("ventana_horaria").value,
-    fragil: document.getElementById("fragil").checked ? 1 : 0,
-    frio: document.getElementById("frio").checked ? 1 : 0,
-    saturacion_ruta: parseFloat(document.getElementById("saturacion_ruta").value)
-  };
+// 🔥 Manejo de rol
+function inicializarRol() {
+  const selectRol = document.getElementById("rol");
 
-<<<<<<< HEAD
   if (!selectRol) return;
 
   selectRol.value = rolActual;
@@ -96,22 +89,25 @@ function inicializarFormulario() {
     };
 
     fetch(`${API_URL}/envios`, {
-=======
-  try {
-    const res = await fetch(`${API_URL}/envios`, {
->>>>>>> 45e8f336c96760797f4ad88ee7b90479498a1858
       method: "POST",
       headers: {
         "Content-Type": "application/json"
       },
       body: JSON.stringify(envio)
-    });
+    })
+      .then(response => {
+        if (!response.ok) {
+          throw new Error("Error en la respuesta del servidor");
+        }
+        return response.json();
+      })
+      .then(data => {
+        console.log("Envío creado:", data);
 
-    const data = await res.json();
+        alert("Envío creado correctamente");
 
-    alert("Envío creado con prioridad: " + data.prioridad);
+        form.reset();
 
-<<<<<<< HEAD
         window.location.href = "index.html";
       })
       .catch(error => {
@@ -120,10 +116,3 @@ function inicializarFormulario() {
       });
   });
 }
-=======
-  } catch (error) {
-    console.error(error);
-    alert("Error al crear envío");
-  }
-});
->>>>>>> 45e8f336c96760797f4ad88ee7b90479498a1858
