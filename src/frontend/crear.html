@@ -38,10 +38,10 @@
       <h3>Información General</h3>
 
       <label for="remitente">Nombre del remitente</label>
-      <input type="text" id="remitente" required>
+      <input type="text" id="remitente" name="remitente" required>
 
       <label for="destinatario">Nombre del destinatario</label>
-      <input type="text" id="destinatario" required>
+      <input type="text" id="destinatario" name="destinatario" required>
     </div>
 
     <!-- ORIGEN -->
@@ -49,13 +49,13 @@
       <h3>Origen</h3>
 
       <label for="ciudadOrigen">Ciudad</label>
-      <input type="text" id="ciudadOrigen" required>
+      <input type="text" id="ciudadOrigen" name="ciudadOrigen" required>
 
       <label for="paisOrigen">País</label>
-      <input type="text" id="paisOrigen" required>
+      <input type="text" id="paisOrigen" name="paisOrigen" required>
 
       <label for="direccionOrigen">Dirección</label>
-      <input type="text" id="direccionOrigen" required>
+      <input type="text" id="direccionOrigen" name="direccionOrigen" required>
     </div>
 
     <!-- DESTINO -->
@@ -63,13 +63,13 @@
       <h3>Destino</h3>
 
       <label for="ciudadDestino">Ciudad</label>
-      <input type="text" id="ciudadDestino" required>
+      <input type="text" id="ciudadDestino" name="ciudadDestino" required>
 
       <label for="paisDestino">País</label>
-      <input type="text" id="paisDestino" required>
+      <input type="text" id="paisDestino" name="paisDestino" required>
 
       <label for="direccionDestino">Dirección</label>
-      <input type="text" id="direccionDestino" required>
+      <input type="text" id="direccionDestino" name="direccionDestino" required>
     </div>
 
     <!-- CARACTERÍSTICAS DEL ENVÍO -->
@@ -77,34 +77,34 @@
       <h3>Características del Envío</h3>
 
       <label for="distanciaKm">Distancia (km)</label>
-      <input type="number" id="distanciaKm" step="0.1" required>
+      <input type="number" id="distanciaKm" name="distanciaKm" step="0.1" required>
 
       <label for="tipoEnvio">Tipo de envío</label>
-      <select id="tipoEnvio">
+      <select id="tipoEnvio" name="tipoEnvio">
         <option value="normal">Normal</option>
         <option value="express">Express</option>
       </select>
 
       <label for="ventanaHoraria">Ventana horaria</label>
-      <select id="ventanaHoraria">
+      <select id="ventanaHoraria" name="ventanaHoraria">
         <option value="mañana">Mañana</option>
         <option value="tarde">Tarde</option>
         <option value="noche">Noche</option>
       </select>
 
       <label for="volumen">Volumen</label>
-      <input type="number" id="volumen" step="0.1" required>
+      <input type="number" id="volumen" name="volumen" step="0.1" required>
 
       <label for="saturacionRuta">Saturación de ruta</label>
-      <input type="number" id="saturacionRuta" step="0.1" min="0" max="1" required>
+      <input type="number" id="saturacionRuta" name="saturacionRuta" step="0.1" min="0" max="1" required>
 
       <label>
-        <input type="checkbox" id="fragil">
+        <input type="checkbox" id="fragil" name="fragil">
         Contiene material frágil
       </label>
 
       <label>
-        <input type="checkbox" id="frio">
+        <input type="checkbox" id="frio" name="frio">
         Requiere cadena de frío
       </label>
     </div>
@@ -112,7 +112,7 @@
     <!-- NOTAS -->
     <div class="card-form">
       <h3>Notas Adicionales</h3>
-      <textarea id="notas" placeholder="Instrucciones especiales"></textarea>
+      <textarea id="notas" name="notas" placeholder="Instrucciones especiales"></textarea>
     </div>
 
     <!-- BOTONES -->
@@ -133,7 +133,6 @@
 </main>
 
 <script src="app.js"></script>
-<script src="crear.js"></script>
 
 </body>
 </html>

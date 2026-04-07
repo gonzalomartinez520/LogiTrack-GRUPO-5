@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", () => {
   inicializarFormulario();
 });
 
-// 🔥 Manejo de rol
+// Manejo de rol
 function inicializarRol() {
   const selectRol = document.getElementById("rol");
 
@@ -22,7 +22,7 @@ function inicializarRol() {
   });
 }
 
-// 🔥 Manejo del nombre de usuario
+// Manejo del nombre de usuario
 function inicializarUsuario() {
   const nombreElemento = document.getElementById("nombreUsuario");
   const botonCambiar = document.getElementById("cambiarUsuario");
@@ -46,7 +46,7 @@ function inicializarUsuario() {
   }
 }
 
-// 🔥 Lógica del formulario Crear Envío
+// Lógica del formulario Crear Envío
 function inicializarFormulario() {
 
   const form = document.querySelector("#form-envio");
@@ -60,13 +60,13 @@ function inicializarFormulario() {
     const remitente = document.getElementById("remitente")?.value;
     const destinatario = document.getElementById("destinatario")?.value;
 
-    const ciudadOrigen = document.getElementById("ciudadOrigen")?.value;
-    const paisOrigen = document.getElementById("paisOrigen")?.value;
-    const direccionOrigen = document.getElementById("direccionOrigen")?.value;
+    const origenCiudad = document.getElementById("ciudadOrigen")?.value;
+    const origenPais = document.getElementById("paisOrigen")?.value;
+    const origenDireccion = document.getElementById("direccionOrigen")?.value;
 
-    const ciudadDestino = document.getElementById("ciudadDestino")?.value;
-    const paisDestino = document.getElementById("paisDestino")?.value;
-    const direccionDestino = document.getElementById("direccionDestino")?.value;
+    const destinoCiudad = document.getElementById("ciudadDestino")?.value;
+    const destinoPais = document.getElementById("paisDestino")?.value;
+    const destinoDireccion = document.getElementById("direccionDestino")?.value;
 
     const distanciaKm = parseFloat(document.getElementById("distanciaKm")?.value);
     const tipoEnvio = document.getElementById("tipoEnvio")?.value;
@@ -84,17 +84,13 @@ function inicializarFormulario() {
       remitente,
       destinatario,
 
-      origen: {
-        ciudad: ciudadOrigen,
-        pais: paisOrigen,
-        direccion: direccionOrigen
-      },
+      origenCiudad,
+      origenPais,
+      origenDireccion,
 
-      destino: {
-        ciudad: ciudadDestino,
-        pais: paisDestino,
-        direccion: direccionDestino
-      },
+      destinoCiudad,
+      destinoPais,
+      destinoDireccion,
 
       distanciaKm,
       tipoEnvio,
