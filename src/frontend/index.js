@@ -53,7 +53,7 @@ function cargarEnvios() {
 
       tbody.innerHTML = `
         <tr>
-          <td colspan="5">Error al cargar los envíos</td>
+          <td colspan="6">Error al cargar los envíos</td>
         </tr>
       `;
 
@@ -75,7 +75,7 @@ function renderTabla(envios) {
   if (envios.length === 0) {
     tbody.innerHTML = `
       <tr>
-        <td colspan="5">No se encontraron envíos</td>
+        <td colspan="6">No se encontraron envíos</td>
       </tr>
     `;
     return;
@@ -84,12 +84,16 @@ function renderTabla(envios) {
   envios.forEach(envio => {
 
     const estado = envio.estadoActual || envio.estado || "SIN ESTADO";
+    const prioridad = envio.prioridad || "-";
 
     const fila = document.createElement("tr");
 
     fila.innerHTML = `
       <td class="link">${envio.trackingId || "-"}</td>
       <td>${envio.destinatario || "-"}</td>
+      <td>
+        <span class="badge">${prioridad}</span>
+      </td>
       <td>
         <span class="badge">${estado}</span>
       </td>

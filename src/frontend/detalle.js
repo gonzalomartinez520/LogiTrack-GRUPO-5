@@ -1,5 +1,3 @@
-const API_URL = "https://backend-logicatrack-production.up.railway.app";
-
 document.addEventListener("DOMContentLoaded", () => {
   cargarDetalle();
 });
@@ -33,6 +31,9 @@ function cargarDetalle() {
       setValor("ciudadDestino", envio.destino);
 
       setValor("fecha", formatearFecha(envio.fechaCreacion));
+
+      // mostrar prioridad
+      setValor("prioridad", envio.prioridad);
 
       const estadoActual = envio.estadoActual || envio.estado;
 

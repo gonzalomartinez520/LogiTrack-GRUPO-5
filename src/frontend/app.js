@@ -65,11 +65,27 @@ function inicializarFormulario() {
     const origen = document.getElementById("ciudadOrigen").value;
     const destino = document.getElementById("ciudadDestino").value;
 
+    // 🔹 Nuevos campos para cálculo de prioridad
+    const distanciaKm = parseFloat(document.getElementById("distanciaKm").value);
+    const tipoEnvio = document.getElementById("tipoEnvio").value;
+    const ventanaHoraria = document.getElementById("ventanaHoraria").value;
+    const volumen = parseFloat(document.getElementById("volumen").value);
+    const saturacionRuta = parseFloat(document.getElementById("saturacionRuta").value);
+    const fragil = document.getElementById("fragil").checked;
+    const frio = document.getElementById("frio").checked;
+
     const envio = {
       remitente,
       destinatario,
       origen,
-      destino
+      destino,
+      distanciaKm,
+      tipoEnvio,
+      ventanaHoraria,
+      volumen,
+      fragil,
+      frio,
+      saturacionRuta
     };
 
     fetch(`${API_URL}/envios`, {
@@ -100,5 +116,3 @@ function inicializarFormulario() {
       });
   });
 }
-
-//version mala 
