@@ -84,11 +84,11 @@ function inicializarFormulario() {
       remitente,
       destinatario,
 
-      origenCiudad,
+      origen,
       origenPais,
       origenDireccion,
 
-      destinoCiudad,
+      destino,
       destinoPais,
       destinoDireccion,
 
