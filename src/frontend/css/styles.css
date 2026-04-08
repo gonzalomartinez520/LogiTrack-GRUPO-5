@@ -81,6 +81,10 @@ nav .active {
   margin-bottom: 20px;
 }
 
+.total{
+background:#cacaca;
+}
+
 .warning {
   background: #e0f56d;
 }
