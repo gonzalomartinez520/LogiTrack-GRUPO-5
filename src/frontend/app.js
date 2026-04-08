@@ -19,6 +19,9 @@ function inicializarRol() {
   selectRol.addEventListener("change", (e) => {
     rolActual = e.target.value;
     localStorage.setItem("rol", rolActual);
+
+    // 🔥 Recargar página para aplicar el nuevo rol
+    location.reload();
   });
 }
 
